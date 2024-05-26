@@ -23,3 +23,10 @@ const YourName = prompt('Enter Your Name');
 const YourLastname = prompt('Enter Your Lastname');
 const YourCountry = prompt('Enter Your Coutry');
 console.log(YourName, YourLastname, YourCountry);
+
+
+
+
+const number = prompt('Enter Number');
+let array = Array.from(number.toString(), Number)
+console.log(array.join(' '));
