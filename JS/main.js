@@ -17,3 +17,9 @@ function DataType() {
     console.log(Mychildrens,' - type of variable:', typeof Mychildrens);
 };  
 DataType();
+
+
+const YourName = prompt('Enter Your Name');
+const YourLastname = prompt('Enter Your Lastname');
+const YourCountry = prompt('Enter Your Coutry');
+console.log(YourName, YourLastname, YourCountry);
