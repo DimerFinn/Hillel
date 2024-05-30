@@ -1,4 +1,4 @@
-function DataType() {
+    function DataType() {
     let MyName = 'Dmytro';
     let MyAge = 45;
     let MyLifeTime = 14200704005245879665412364412665478963214;
