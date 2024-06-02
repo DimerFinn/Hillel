@@ -15,12 +15,12 @@ let userEngland = {
     CapitalCity: "Лондон",
 }
 let arrUsers = [userUkraine, userUSA, userEngland];
-let isUsualCity = true; //перемикач включений
+let isUsualCity = true;
 for (let i = 0; i < arrUsers.length; i++) {
  if (YourCity === arrUsers[i].CapitalCity){
-isUsualCity = false //виключаєм перемикач, бо знайшли столицю
+isUsualCity = false 
 alert (`Твій вік ${YourAge} років, Ти живешь у столиці ${arrUsers[i].CountryName}`);}
  }
 
-if(isUsualCity) { //якщо перемикач все ще включений, значить столицю не знайшли, виводимо повідомлення про звичайне місто
+if(isUsualCity) { 
     alert (`Твій вік ${YourAge} років,Ти живешь у місті ${YourCity}`);}
