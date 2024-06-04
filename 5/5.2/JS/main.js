@@ -1,6 +1,4 @@
-let dollar = prompt ('Введіть кількість долларів');
-
-function exchange () {
-    alert(`${dollar*26} гривень`);
-}
-exchange ()
+for (let i=10; i<=100; i+=10) {
+    console.log(i*26);
+    }
+    
