@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Випадкове зображення</title>
+</head>
+<body>
+  <h1>Випадкове зображення</h1>
+  <div id="random-image-container">
+    <img id="random-image" src="" alt="Випадкове зображення">
+  </div>
+
+  <button onclick="loadRandomImage()">Завантажити випадкове зображення</button>
+
+  <script>
+    function loadRandomImage() {
+      const min = 1;
+      const max = 9;
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      const imageUrl = `../img/${randomNumber}.jpg`; // Шлях до вашої папки з зображеннями
+
+      document.getElementById('random-image').src = imageUrl;
+    }
+  </script>
+</body>
+</html>
