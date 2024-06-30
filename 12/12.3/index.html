@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 12.3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding: 0;
+        }
+        li {
+            padding: 5px;
+            margin: 5px 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #ccc;
+            border: 1px solid #888;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul id="taskList">
+        <li>Завдання 1 <button>Видалити</button></li>
+        <li>Завдання 2 <button>Видалити</button></li>
+        <li>Завдання 3 <button>Видалити</button></li>
+    </ul>
+    <input type="text" id="taskInput" placeholder="Додати нове завдання">
+    <button id="addTaskButton">Додати</button>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addTaskButton = document.getElementById('addTaskButton');
+        const taskList = document.getElementById('taskList');
+
+            addTaskButton.addEventListener('click', function() {
+            const taskText = taskInput.value.trim();
+            if (taskText !== '') {
+                const li = document.createElement('li');
+                li.innerHTML = `${taskText} <button>Видалити</button>`;
+                taskList.appendChild(li);
+                taskInput.value = '';
+            }
+        });
+
+            taskList.addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                const li = event.target.parentElement;
+                taskList.removeChild(li);
+            }
+        });
+    </script>
+</body>
+</html>
