@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 13.1</title>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <form id="contactForm">
+    <h2>We would like to help you</h2>
+    <div>
+      <input type="text" id="name" placeholder="Name">
+      <div id="nameError" class="error-message"></div>
+    </div>
+    <div>
+      <textarea id="message" placeholder="Message"></textarea>
+      <div id="messageError" class="error-message"></div>
+    </div>
+    <h3>How to answer you?</h3>
+    <div>
+      <input type="text" id="phone" placeholder="Phone number">
+      <div id="phoneError" class="error-message"></div>
+    </div>
+    <div>
+      <input type="text" id="email" placeholder="Email">
+      <div id="emailError" class="error-message"></div>
+    </div>
+    <button type="submit">Send message</button>
+  </form>
+
+  <script src="../13/main.js"></script>
+</body>
+</html>
