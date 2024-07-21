@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Class</title>
+</head>
+<body>
+    <h1>Bank Account Test</h1>
+    <script>
+        
+        class BankAccount {
+            constructor(initialBalance) {
+                this.balance = initialBalance;
+            }
+
+            getBalance() {
+                return this.balance;
+            }
+
+            deposit(amount) {
+                if (amount > 0) {
+                    this.balance += amount;
+                } else {
+                    console.log("Сума внесення повинна бути позитивною.");
+                }
+            }
+
+            withdraw(amount) {
+                if (amount > 0) {
+                    if (this.balance >= amount) {
+                        this.balance -= amount;
+                    } else {
+                        console.log("Недостатньо коштів для зняття.");
+                    }
+                } else {
+                    console.log("Сума зняття повинна бути позитивною.");
+                }
+            }
+        }
+
+        
+        const account1 = new BankAccount(1000);
+
+       
+        console.log(account1.getBalance()); 
+
+        account1.deposit(500);
+        console.log(account1.getBalance()); 
+
+        account1.withdraw(200);
+        console.log(account1.getBalance()); 
+    </script>
+</body>
+</html>
