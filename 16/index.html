@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 16</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            margin: 5px;
+        }
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Class Test</h1>
+    <div>
+        <button onclick="testStudent1()">Test Student 1</button>
+        <button onclick="testStudent2()">Test Student 2</button>
+        <button onclick="testStudent3()">Test Student 3</button>
+    </div>
+    <div id="results"></div>
+
+    <script>
+        class Student {
+            constructor(firstName, lastName, birthYear, grades = []) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.birthYear = birthYear;
+                this.grades = grades;
+                this.attendance = new Array(25).fill(null);
+            }
+
+        
+            getAge() {
+                const currentYear = new Date().getFullYear();
+                return currentYear - this.birthYear;
+            }
+
+            
+            getAverageGrade() {
+                if (this.grades.length === 0) return 0;
+                const sum = this.grades.reduce((a, b) => a + b, 0);
+                return sum / this.grades.length;
+            }
+
+            
+            present() {
+                const index = this.attendance.indexOf(null);
+                if (index !== -1) {
+                    this.attendance[index] = true;
+                } else {
+                    console.log("У масиві відвідуваності вже є 25 записів.");
+                }
+            }
+
+            
+            absent() {
+                const index = this.attendance.indexOf(null);
+                if (index !== -1) {
+                    this.attendance[index] = false;
+                } else {
+                    console.log("У масиві відвідуваності вже є 25 записів.");
+                }
+            }
+
+            
+            summary() {
+                const averageGrade = this.getAverageGrade();
+                const attendanceCount = this.attendance.filter(item => item === true).length;
+                const totalClasses = this.attendance.filter(item => item !== null).length;
+                const attendanceRate = totalClasses === 0 ? 0 : attendanceCount / totalClasses;
+
+                if (averageGrade > 90 && attendanceRate > 0.9) {
+                    return "Молодець!";
+                } else if (averageGrade > 90 || attendanceRate > 0.9) {
+                    return "Добре, але можна краще";
+                } else {
+                    return "Редиска!";
+                }
+            }
+        }
+
+        const student1 = new Student("Іван", "Петров", 2001, [95, 87, 92]);
+        const student2 = new Student("Марія", "Іванова", 2002, [88, 79, 85]);
+        const student3 = new Student("Олександр", "Сидоренко", 2000, [70, 68, 72]);
+
+        function testStudent1() {
+            student1.present();
+            student1.present();
+            student1.absent();
+            document.getElementById('results').innerText = `Student 1 Summary: ${student1.summary()}`;
+        }
+
+        function testStudent2() {
+            student2.present();
+            student2.present();
+            student2.present();
+            student2.present();
+            document.getElementById('results').innerText = `Student 2 Summary: ${student2.summary()}`;
+        }
+
+        function testStudent3() {
+            student3.absent();
+            student3.absent();
+            document.getElementById('results').innerText = `Student 3 Summary: ${student3.summary()}`;
+        }
+    </script>
+</body>
+</html>
