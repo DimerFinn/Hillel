@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div>
+        <input type="number" id="num1" placeholder="Число 1">
+        <input type="number" id="num2" placeholder="Число 2">
+        <br>
+        <button onclick="calculate('add')">Додавання</button>
+        <button onclick="calculate('subtract')">Віднімання</button>
+        <button onclick="calculate('multiply')">Множення</button>
+        <button onclick="calculate('divide')">Ділення</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        class Calculator {
+            // Метод для додавання
+            add(a, b) {
+                return a + b;
+            }
+
+            // Метод для віднімання
+            subtract(a, b) {
+                return a - b;
+            }
+
+            // Метод для множення
+            multiply(a, b) {
+                return a * b;
+            }
+
+            // Метод для ділення
+            divide(a, b) {
+                if (b === 0) {
+                    throw new Error("Ділення на нуль не допускається");
+                }
+                return a / b;
+            }
+        }
+
+        const calc = new Calculator();
+
+        function calculate(operation) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            try {
+                switch (operation) {
+                    case 'add':
+                        result = calc.add(num1, num2);
+                        break;
+                    case 'subtract':
+                        result = calc.subtract(num1, num2);
+                        break;
+                    case 'multiply':
+                        result = calc.multiply(num1, num2);
+                        break;
+                    case 'divide':
+                        result = calc.divide(num1, num2);
+                        break;
+                    default:
+                        result = 'Невідома операція';
+                }
+                document.getElementById('result').innerText = `Результат: ${result}`;
+            } catch (error) {
+                document.getElementById('result').innerText = `Помилка: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
