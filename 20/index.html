@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo List</title>
+    <title>Homework 20</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +17,6 @@
     </ul>
 </div>
 
-<!-- Модальне вікно -->
 <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -39,11 +38,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// Обробник кліку на завдання
 $(document).ready(function() {
     $('#todo-list .list-group-item').on('click', function() {
-        const taskText = $(this).text();  // Отримуємо текст завдання
-        $('#task-text').text(taskText);  // Вставляємо текст у модальне вікно
+        const taskText = $(this).text(); 
+        $('#task-text').text(taskText); 
     });
 });
 </script>
