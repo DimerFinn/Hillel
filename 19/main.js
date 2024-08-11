@@ -33,5 +33,5 @@ fetchWeatherData();
 function getWindDirection(deg) {
     const directions = ['Пн', 'Пн-Сх', 'Сх', 'Пд-Сх', 'Пд', 'Пд-Зх', 'Зх', 'Пн-Зх'];
     const index = Math.round(deg / 45) % 8;
-    return directions[index];
+    return directions[index]; 
 }
